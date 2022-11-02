@@ -1,0 +1,5 @@
+build-*/
+downloads/
+layers/
+sstate-cache/
+
