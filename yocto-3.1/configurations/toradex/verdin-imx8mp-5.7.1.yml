@@ -69,6 +69,10 @@ repos:
         url: "https://git.toradex.com/meta-toradex-distro.git"
         refspec: "4cdeb8980411db8fc65655832a664bf80d93e534"
         path: "layers/meta-toradex-distro"
+    meta-embeddeduse:
+        url: "https://github.com/bstubert/meta-embeddeduse.git"
+        refspec: "5e8ff3c60f61a97b385be30ee176b5c7e4a14840"
+        path: "layers/meta-embeddeduse"
 
 bblayers_conf_header:
     custom-bblayers-conf: |
