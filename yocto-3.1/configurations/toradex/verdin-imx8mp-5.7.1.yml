@@ -79,4 +79,4 @@ local_conf_header:
         ACCEPT_FSL_EULA = "1"
         DL_DIR = "/work/downloads"
         SSTATE_DIR = "/work/sstate-cache"
-
+        RRECOMMENDS_packagegroup-utils-tdx-cli_remove = "tdx-oak-sensors"
