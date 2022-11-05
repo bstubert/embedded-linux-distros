@@ -3,7 +3,7 @@ header:
 distro: tdx-xwayland
 build_system: oe
 machine: verdin-imx8mp
-target: tdx-reference-multimedia-image
+target: emuse-smart-hmi-image
 
 repos:
     openembedded-core:
@@ -61,10 +61,6 @@ repos:
         url: "https://github.com/meta-qt5/meta-qt5.git"
         refspec: "5ef3a0ffd3324937252790266e2b2e64d33ef34f"
         path: "layers/meta-qt5"
-    meta-toradex-demos:
-        url: "https://git.toradex.com/meta-toradex-demos.git"
-        refspec: "ce3c1925df34b4d299b2dd1003ced41b9485ce41"
-        path: "layers/meta-toradex-demos"
     meta-toradex-distro:
         url: "https://git.toradex.com/meta-toradex-distro.git"
         refspec: "4cdeb8980411db8fc65655832a664bf80d93e534"
@@ -81,4 +77,3 @@ local_conf_header:
         ACCEPT_FSL_EULA = "1"
         DL_DIR = "/work/downloads"
         SSTATE_DIR = "/work/sstate-cache"
-        RRECOMMENDS_packagegroup-utils-tdx-cli_remove = "tdx-oak-sensors"
