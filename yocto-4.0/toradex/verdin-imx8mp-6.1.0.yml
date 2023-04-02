@@ -1,0 +1,82 @@
+header:
+    version: 11
+distro: tdx-xwayland
+build_system: oe
+machine: verdin-imx8mp
+target: tdx-reference-multimedia-image
+
+repos:
+    openembedded-core:
+        url: "https://github.com/openembedded/openembedded-core.git"
+        refspec: "ada5e64a97d5f269886772540e0bb0c324088b21"
+        path: "layers/openembedded-core"
+        layers:
+            meta:
+    bitbake:
+        url: "https://github.com/openembedded/bitbake.git"
+        refspec: "7e268c107bb0240d583d2c34e24a71e373382509"
+        path: "layers/openembedded-core/bitbake"
+        layers:
+            bitbake: excluded
+    meta-openembedded:
+        url: "https://github.com/openembedded/meta-openembedded.git"
+        refspec: "a8055484f2829e8dfd03d5c8520b2c611aa7ebd2"
+        path: "layers/meta-openembedded"
+        layers:
+            meta-oe:
+            meta-filesystems:
+            meta-gnome:
+            meta-xfce:
+            meta-initramfs:
+            meta-networking:
+            meta-multimedia:
+            meta-python:
+    meta-yocto:
+        url: "https://git.yoctoproject.org/git/meta-yocto.git"
+        refspec: "ff1102a164e83bfa4e9529f573e2f198c3cda3b5"
+        path: "layers/meta-yocto"
+        layers:
+            meta-poky:
+    meta-freescale-3rdparty:
+        url: "https://github.com/Freescale/meta-freescale-3rdparty.git"
+        refspec: "e1ec96f0b1d89adab9ec1f224e7d6dcb0ef565c0"
+        path: "layers/meta-freescale-3rdparty"
+    meta-freescale-distro:
+        url: "https://github.com/Freescale/meta-freescale-distro.git"
+        refspec: "d5bbb487b2816dfc74984a78b67f7361ce404253"
+        path: "layers/meta-freescale-distro"
+    meta-freescale:
+        url: "https://github.com/Freescale/meta-freescale.git"
+        refspec: "9b2a351c4f662d222ef7e5b8007f0d47c108f31f"
+        path: "layers/meta-freescale"
+    meta-toradex-bsp-common:
+        url: "https://git.toradex.com/meta-toradex-bsp-common.git"
+        refspec: "1a14c2724ab0cbcf3d01042fed7b60b48c8ab836"
+        path: "layers/meta-toradex-bsp-common"
+    meta-toradex-nxp:
+        url: "https://git.toradex.com/meta-toradex-nxp.git"
+        refspec: "364341c23ea49fb875e84f980b208699311aaf9c"
+        path: "layers/meta-toradex-nxp"
+    meta-qt5:
+        url: "https://github.com/meta-qt5/meta-qt5.git"
+        refspec: "44d44933200287f7d17cf6981af4b4a0961c308d"
+        path: "layers/meta-qt5"
+    meta-toradex-distro:
+        url: "https://git.toradex.com/meta-toradex-distro.git"
+        refspec: "2712e46aadd2ec74711d69503b61dba3548e0aa4"
+        path: "layers/meta-toradex-distro"
+
+bblayers_conf_header:
+    custom-bblayers-conf: |
+        POKY_BBLAYERS_CONF_VERSION = "1"
+
+local_conf_header:
+    custom-local-conf: |
+        DL_DIR = "/work/downloads"
+        SSTATE_DIR = "/work/sstate-cache"
+        ACCEPT_FSL_EULA = "1"
+        PACKAGE_CLASSES ?= "package_ipk"
+        EXTRA_IMAGE_FEATURES ?= "debug-tweaks package-management"
+        USER_CLASSES ?= "buildstats"
+        PATCHRESOLVE = "noop"
+        INHERIT += "toradex-mirrors toradex-sanity"
