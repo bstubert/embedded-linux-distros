@@ -3,7 +3,7 @@ header:
 distro: tdx-xwayland
 build_system: oe
 machine: verdin-imx8mp
-target: tdx-reference-multimedia-image
+target: smart-hmi-platform-image
 
 repos:
     openembedded-core:
@@ -65,6 +65,14 @@ repos:
         url: "https://git.toradex.com/meta-toradex-distro.git"
         refspec: "2712e46aadd2ec74711d69503b61dba3548e0aa4"
         path: "layers/meta-toradex-distro"
+    meta-toradex-demos:
+        url: "https://git.toradex.com/meta-toradex-demos.git"
+        refspec: "842174e46db477167f44870160edadb46c7a3468"
+        path: "layers/meta-toradex-demos"
+    meta-embeddeduse:
+        url: "https://github.com/bstubert/meta-embeddeduse.git"
+        refspec: "main"
+        path: "layers/meta-embeddeduse"
 
 bblayers_conf_header:
     custom-bblayers-conf: |
@@ -79,4 +87,5 @@ local_conf_header:
         EXTRA_IMAGE_FEATURES ?= "debug-tweaks package-management"
         USER_CLASSES ?= "buildstats"
         PATCHRESOLVE = "noop"
-        INHERIT += "toradex-mirrors toradex-sanity"
+        INHERIT += "own-mirrors"
+        SOURCE_MIRROR_URL = "https://github.com/nxp-imx/"
