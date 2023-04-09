@@ -59,19 +59,13 @@ repos:
         path: "layers/meta-toradex-nxp"
     meta-qt5:
         url: "https://github.com/meta-qt5/meta-qt5.git"
-        refspec: "44d44933200287f7d17cf6981af4b4a0961c308d"
+        refspec: "kirkstone"
         path: "layers/meta-qt5"
     meta-toradex-distro:
         url: "https://git.toradex.com/meta-toradex-distro.git"
         refspec: "2712e46aadd2ec74711d69503b61dba3548e0aa4"
         path: "layers/meta-toradex-distro"
-    meta-toradex-demos:
-        url: "https://git.toradex.com/meta-toradex-demos.git"
-        refspec: "842174e46db477167f44870160edadb46c7a3468"
-        path: "layers/meta-toradex-demos"
     meta-embeddeduse:
-        url: "https://github.com/bstubert/meta-embeddeduse.git"
-        refspec: "main"
         path: "layers/meta-embeddeduse"
 
 bblayers_conf_header:
@@ -87,5 +81,7 @@ local_conf_header:
         EXTRA_IMAGE_FEATURES ?= "debug-tweaks package-management"
         USER_CLASSES ?= "buildstats"
         PATCHRESOLVE = "noop"
+        PACKAGECONFIG:append:pn-qemu-system-native = " sdl"
+        CONF_VERSION = "2"
         INHERIT += "toradex-mirrors toradex-sanity"
         include conf/machine/include/${MACHINE}.inc
