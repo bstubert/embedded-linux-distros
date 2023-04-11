@@ -66,6 +66,8 @@ repos:
         refspec: "2712e46aadd2ec74711d69503b61dba3548e0aa4"
         path: "layers/meta-toradex-distro"
     meta-embeddeduse:
+        url: "https://github.com/bstubert/meta-embeddeduse.git"
+        refspec: "yocto-4.0-qt5"
         path: "layers/meta-embeddeduse"
 
 bblayers_conf_header:
